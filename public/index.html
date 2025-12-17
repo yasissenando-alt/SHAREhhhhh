@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STARTCOPE NEWS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -11,171 +13,635 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
             min-height: 100vh;
             color: #fff;
+            background-attachment: fixed;
+        }
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(233, 69, 96, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(0, 212, 255, 0.1) 0%, transparent 40%);
+            animation: moveBg 20s ease-in-out infinite;
+        }
+        @keyframes moveBg {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20%, -20%); }
         }
         header {
-            background: linear-gradient(90deg, #e94560 0%, #ff6b6b 100%);
-            padding: 20px;
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 50%, #ee5a24 100%);
+            padding: 25px 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+            box-shadow: 0 8px 32px rgba(233, 69, 96, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
         }
         header h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 800;
-            letter-spacing: 3px;
+            letter-spacing: 5px;
             text-transform: uppercase;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            position: relative;
         }
         header p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-top: 5px;
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-top: 8px;
+            font-weight: 300;
+        }
+        nav {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            backdrop-filter: blur(10px);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        nav a:hover {
+            background: #e94560;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
         }
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 30px 20px;
         }
-        .loading {
+        .hero-section {
             text-align: center;
-            padding: 50px;
-            font-size: 1.2rem;
+            padding: 60px 20px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 30px auto;
+            max-width: 900px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .hero-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #e94560, #ff6b6b, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(233, 69, 96, 0.6);
+        }
+        .search-section {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .search-box {
+            display: flex;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .search-box input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            outline: none;
+        }
+        .search-box input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+        .search-box button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .search-box button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 40px 0 30px;
+            color: #fff;
+        }
+        .section-title span {
             color: #e94560;
         }
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
         }
         .news-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.4s;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
         .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(233, 69, 96, 0.3);
+            border-color: rgba(233, 69, 96, 0.5);
         }
         .news-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
-            background: #2a2a4a;
+            background: linear-gradient(135deg, #2a2a4a, #1a1a3a);
         }
         .news-image.placeholder {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 4rem;
             color: #e94560;
         }
         .news-content {
-            padding: 20px;
+            padding: 25px;
         }
         .news-source {
             color: #e94560;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.15);
+            padding: 5px 12px;
+            border-radius: 15px;
         }
         .news-title {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 12px;
-            line-height: 1.4;
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
         .news-title a {
             color: #fff;
             text-decoration: none;
+            transition: color 0.3s;
         }
         .news-title a:hover {
             color: #e94560;
         }
         .news-description {
-            font-size: 0.9rem;
-            color: #b0b0b0;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #a0a0a0;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         .news-date {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #666;
+        }
+        .news-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .action-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .like-btn {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+        }
+        .like-btn:hover, .like-btn.liked {
+            background: #e94560;
+            color: #fff;
+        }
+        .share-btn {
+            background: rgba(0, 149, 246, 0.2);
+            color: #0095f6;
+        }
+        .share-btn:hover {
+            background: #0095f6;
+            color: #fff;
+        }
+        .about-section {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 60px auto;
+            max-width: 1000px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #e94560;
+        }
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #b0b0b0;
+            margin-bottom: 15px;
+        }
+        .about-section .creator {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(138, 43, 226, 0.2));
+            border-radius: 15px;
+        }
+        .about-section .powered {
+            font-size: 1rem;
+            color: #ffd93d;
+            margin-top: 15px;
+        }
+        .contact-section {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1), rgba(138, 43, 226, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 60px auto;
+            max-width: 800px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .facebook-btn {
+            background: linear-gradient(135deg, #1877f2, #3b5998);
+            color: #fff;
+        }
+        .facebook-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(24, 119, 242, 0.4);
+        }
+        .email-btn {
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            color: #fff;
+        }
+        .email-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+        }
+        footer {
+            background: rgba(0,0,0,0.5);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        footer p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        footer .brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e94560;
+            letter-spacing: 3px;
+        }
+        .loading {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(233, 69, 96, 0.2);
+            border-top-color: #e94560;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
         .error {
             text-align: center;
             padding: 50px;
             color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 20px;
+            margin: 20px;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             header h1 {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+            .hero-section h2 {
                 font-size: 1.8rem;
             }
             .news-grid {
                 grid-template-columns: 1fr;
             }
+            .search-box {
+                flex-direction: column;
+            }
+            .search-box button {
+                width: 100%;
+                justify-content: center;
+            }
+            nav {
+                gap: 10px;
+            }
+            nav a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="animated-bg"></div>
+    
     <header>
-        <h1>STARTCOPE NEWS</h1>
-        <p>Latest News from Manila</p>
+        <h1><i class="fas fa-newspaper"></i> STARTCOPE NEWS</h1>
+        <p>Latest News from Manila - Your Trusted News Source</p>
     </header>
+    
+    <nav>
+        <a href="#home"><i class="fas fa-home"></i> Home</a>
+        <a href="#news"><i class="fas fa-newspaper"></i> News</a>
+        <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+    
     <div class="container">
+        <section id="home" class="hero-section">
+            <h2>Welcome to STARTCOPE NEWS</h2>
+            <p>Stay updated with the latest news from Manila and around the Philippines. We bring you real-time news, trending stories, and breaking updates all in one place.</p>
+            <a href="#news" class="btn-primary"><i class="fas fa-rocket"></i> GET STARTED</a>
+        </section>
+        
+        <section class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search news... (e.g., politics, sports, entertainment)">
+                <button onclick="searchNews()"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </section>
+        
+        <h2 id="news" class="section-title"><span>Latest</span> News</h2>
+        
         <div id="news-container">
-            <div class="loading">Loading news...</div>
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading latest news...</p>
+            </div>
         </div>
+        
+        <section id="about" class="about-section">
+            <h2><i class="fas fa-info-circle"></i> ABOUT THIS WEBSITE</h2>
+            <p>STARTCOPE NEWS is your premier destination for the latest news from Manila and the Philippines. We are committed to delivering accurate, timely, and relevant news to keep you informed about what matters most.</p>
+            <p>Our mission is to provide quality journalism and keep our community connected with the stories that shape our world.</p>
+            <div class="creator">
+                <i class="fas fa-user"></i> CREATED BY MANUELSON YASIS
+            </div>
+            <p class="powered"><i class="fas fa-bolt"></i> POWERED BY STARTCOPE BETA - CAMARINES SUR</p>
+        </section>
+        
+        <section id="contact" class="contact-section">
+            <h2><i class="fas fa-headset"></i> CONTACT DEVELOPER</h2>
+            <p style="color: #b0b0b0; margin-bottom: 30px;">Get in touch with us through the following channels:</p>
+            <div class="contact-buttons">
+                <a href="https://www.facebook.com/starcopebetacommenthightlight" target="_blank" class="contact-btn facebook-btn">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="mailto:startcopebeta8@gmail.com" class="contact-btn email-btn">
+                    <i class="fas fa-envelope"></i> Send Email
+                </a>
+            </div>
+        </section>
     </div>
+    
+    <footer>
+        <p class="brand">STARTCOPE NEWS</p>
+        <p>&copy; 2024 STARTCOPE BETA - Camarines Sur, Philippines</p>
+        <p>Created by Manuelson Yasis</p>
+    </footer>
+    
     <script>
-        async function fetchNews() {
+        let allNews = [];
+        
+        async function fetchNews(query = 'manila') {
             const container = document.getElementById('news-container');
+            container.innerHTML = `
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading latest news...</p>
+                </div>
+            `;
+            
             try {
-                const response = await fetch('/api/news');
+                const response = await fetch(`/api/news?q=${encodeURIComponent(query)}`);
                 const data = await response.json();
                 
                 if (data.results && data.results.length > 0) {
-                    container.innerHTML = '<div class="news-grid"></div>';
-                    const grid = container.querySelector('.news-grid');
-                    
-                    data.results.forEach(article => {
-                        const card = document.createElement('div');
-                        card.className = 'news-card';
-                        
-                        const imageHtml = article.image_url 
-                            ? `<img src="${article.image_url}" alt="${article.title}" class="news-image" onerror="this.outerHTML='<div class=\\'news-image placeholder\\'>📰</div>'">`
-                            : '<div class="news-image placeholder">📰</div>';
-                        
-                        const pubDate = article.pubDate ? new Date(article.pubDate).toLocaleDateString('en-PH', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        }) : '';
-                        
-                        card.innerHTML = `
-                            ${imageHtml}
-                            <div class="news-content">
-                                <div class="news-source">${article.source_id || 'News'}</div>
-                                <h2 class="news-title">
-                                    <a href="${article.link}" target="_blank" rel="noopener">${article.title}</a>
-                                </h2>
-                                <p class="news-description">${article.description || ''}</p>
-                                <div class="news-date">${pubDate}</div>
-                            </div>
-                        `;
-                        grid.appendChild(card);
-                    });
+                    allNews = data.results;
+                    renderNews(allNews);
                 } else {
-                    container.innerHTML = '<div class="error">No news articles found.</div>';
+                    container.innerHTML = '<div class="error"><i class="fas fa-exclamation-circle"></i> No news articles found. Try a different search term.</div>';
                 }
             } catch (error) {
-                container.innerHTML = '<div class="error">Failed to load news. Please try again later.</div>';
+                container.innerHTML = '<div class="error"><i class="fas fa-exclamation-triangle"></i> Failed to load news. Please try again later.</div>';
             }
         }
+        
+        function renderNews(articles) {
+            const container = document.getElementById('news-container');
+            container.innerHTML = '<div class="news-grid"></div>';
+            const grid = container.querySelector('.news-grid');
+            
+            articles.forEach((article, index) => {
+                const card = document.createElement('div');
+                card.className = 'news-card';
+                
+                const imageHtml = article.image_url 
+                    ? `<img src="${article.image_url}" alt="${article.title}" class="news-image" onerror="this.outerHTML='<div class=\\'news-image placeholder\\'><i class=\\'fas fa-newspaper\\'></i></div>'">`
+                    : '<div class="news-image placeholder"><i class="fas fa-newspaper"></i></div>';
+                
+                const pubDate = article.pubDate ? new Date(article.pubDate).toLocaleDateString('en-PH', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }) : '';
+                
+                const description = article.description ? article.description.substring(0, 150) + '...' : '';
+                
+                card.innerHTML = `
+                    ${imageHtml}
+                    <div class="news-content">
+                        <span class="news-source"><i class="fas fa-broadcast-tower"></i> ${article.source_id || 'News'}</span>
+                        <h2 class="news-title">
+                            <a href="${article.link}" target="_blank" rel="noopener">${article.title}</a>
+                        </h2>
+                        <p class="news-description">${description}</p>
+                        <div class="news-meta">
+                            <span class="news-date"><i class="far fa-calendar"></i> ${pubDate}</span>
+                            <div class="news-actions">
+                                <button class="action-btn like-btn" onclick="toggleLike(this, ${index})">
+                                    <i class="fas fa-heart"></i> <span>Like</span>
+                                </button>
+                                <button class="action-btn share-btn" onclick="shareNews('${article.link}', '${article.title.replace(/'/g, "\\'")}')">
+                                    <i class="fas fa-share"></i> Share
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+        
+        function toggleLike(btn, index) {
+            btn.classList.toggle('liked');
+            const span = btn.querySelector('span');
+            if (btn.classList.contains('liked')) {
+                span.textContent = 'Liked';
+            } else {
+                span.textContent = 'Like';
+            }
+        }
+        
+        function shareNews(url, title) {
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    url: url
+                });
+            } else {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Link copied to clipboard!');
+                });
+            }
+        }
+        
+        function searchNews() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (query) {
+                fetchNews(query);
+            } else {
+                fetchNews('manila');
+            }
+        }
+        
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchNews();
+            }
+        });
         
         fetchNews();
     </script>

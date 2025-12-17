@@ -7,7 +7,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/api/news', async (req, res) => {
   try {
-    const response = await axios.get('https://newsdata.io/api/1/latest?apikey=pub_0318d0b2916048e0914e48838720b00c&q=manila');
+    const query = req.query.q || 'manila';
+    const response = await axios.get(`https://newsdata.io/api/1/latest?apikey=pub_0318d0b2916048e0914e48838720b00c&q=${encodeURIComponent(query)}`);
     res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch news' });
