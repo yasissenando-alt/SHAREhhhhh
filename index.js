@@ -1,9 +1,14 @@
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
-const app = express();
+const OpenAI = require('openai');
 
+const app = express();
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// the newest OpenAI model is "gpt-5" which was released August 7, 2025. do not change this unless explicitly requested by the user
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 app.get('/api/news', async (req, res) => {
   try {
@@ -12,6 +17,35 @@ app.get('/api/news', async (req, res) => {
     res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch news' });
+  }
+});
+
+app.post('/api/chat', async (req, res) => {
+  try {
+    const { message } = req.body;
+    if (!message) {
+      return res.status(400).json({ error: 'Message is required' });
+    }
+
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o",
+      messages: [
+        {
+          role: "system",
+          content: "You are CHATGPT HELPER, a friendly and helpful AI assistant for STARTCOPE NEWS website. You help users with news, answer questions, and provide assistance. Be concise and helpful. Respond in the user's language (Filipino or English)."
+        },
+        {
+          role: "user",
+          content: message
+        }
+      ],
+      max_tokens: 500
+    });
+
+    res.json({ reply: response.choices[0].message.content });
+  } catch (error) {
+    console.error('ChatGPT error:', error);
+    res.status(500).json({ error: 'Failed to get AI response' });
   }
 });
 

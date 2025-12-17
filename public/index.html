@@ -42,6 +42,36 @@
             0%, 100% { transform: translate(0, 0); }
             50% { transform: translate(-20%, -20%); }
         }
+        .time-bar {
+            background: rgba(0,0,0,0.6);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .time-display {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffd93d;
+            font-weight: 500;
+        }
+        .time-display i {
+            font-size: 1.2rem;
+        }
+        .profile-mini {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .profile-mini img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid #e94560;
+        }
         header {
             background: linear-gradient(135deg, #e94560 0%, #ff6b6b 50%, #ee5a24 100%);
             padding: 25px 20px;
@@ -83,19 +113,20 @@
             padding: 15px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             backdrop-filter: blur(10px);
         }
         nav a {
             color: #fff;
             text-decoration: none;
-            padding: 10px 25px;
+            padding: 10px 20px;
             border-radius: 25px;
             font-weight: 500;
             transition: all 0.3s;
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
         }
         nav a:hover {
             background: #e94560;
@@ -105,20 +136,28 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 20px 15px;
         }
         .hero-section {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
             background: rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            margin: 30px auto;
+            margin: 20px auto;
             max-width: 900px;
             border: 1px solid rgba(255,255,255,0.1);
         }
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #e94560;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+        }
         .hero-section h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 20px;
             background: linear-gradient(135deg, #e94560, #ff6b6b, #ffd93d);
             -webkit-background-clip: text;
@@ -126,20 +165,20 @@
             background-clip: text;
         }
         .hero-section p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #b0b0b0;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             line-height: 1.8;
         }
         .btn-primary {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 15px 35px;
             background: linear-gradient(135deg, #e94560, #ff6b6b);
             color: #fff;
             text-decoration: none;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
@@ -151,24 +190,24 @@
         }
         .search-section {
             max-width: 700px;
-            margin: 30px auto;
-            padding: 0 20px;
+            margin: 25px auto;
+            padding: 0 15px;
         }
         .search-box {
             display: flex;
             gap: 10px;
             background: rgba(255,255,255,0.1);
-            padding: 10px;
+            padding: 8px;
             border-radius: 50px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.2);
         }
         .search-box input {
             flex: 1;
-            padding: 15px 25px;
+            padding: 12px 20px;
             border: none;
             border-radius: 30px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             background: rgba(255,255,255,0.1);
             color: #fff;
             outline: none;
@@ -177,7 +216,7 @@
             color: rgba(255,255,255,0.6);
         }
         .search-box button {
-            padding: 15px 30px;
+            padding: 12px 25px;
             background: linear-gradient(135deg, #e94560, #ff6b6b);
             border: none;
             border-radius: 30px;
@@ -191,12 +230,11 @@
         }
         .search-box button:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
         }
         .section-title {
             text-align: center;
-            font-size: 2rem;
-            margin: 40px 0 30px;
+            font-size: 1.8rem;
+            margin: 35px 0 25px;
             color: #fff;
         }
         .section-title span {
@@ -204,8 +242,8 @@
         }
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
         }
         .news-card {
             background: rgba(255, 255, 255, 0.08);
@@ -216,13 +254,13 @@
             backdrop-filter: blur(10px);
         }
         .news-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(233, 69, 96, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(233, 69, 96, 0.3);
             border-color: rgba(233, 69, 96, 0.5);
         }
         .news-image {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
             background: linear-gradient(135deg, #2a2a4a, #1a1a3a);
         }
@@ -230,28 +268,28 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: #e94560;
         }
         .news-content {
-            padding: 25px;
+            padding: 20px;
         }
         .news-source {
             color: #e94560;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: inline-block;
             background: rgba(233, 69, 96, 0.15);
-            padding: 5px 12px;
-            border-radius: 15px;
+            padding: 4px 10px;
+            border-radius: 12px;
         }
         .news-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 15px;
-            line-height: 1.5;
+            margin-bottom: 12px;
+            line-height: 1.4;
         }
         .news-title a {
             color: #fff;
@@ -262,36 +300,38 @@
             color: #e94560;
         }
         .news-description {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #a0a0a0;
-            line-height: 1.7;
-            margin-bottom: 20px;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
         .news-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 15px;
+            padding-top: 12px;
             border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .news-date {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #666;
         }
         .news-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
         .action-btn {
-            padding: 8px 15px;
+            padding: 6px 12px;
             border: none;
-            border-radius: 20px;
+            border-radius: 15px;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 5px;
-            font-size: 0.85rem;
+            gap: 4px;
+            font-size: 0.8rem;
             font-weight: 500;
         }
         .like-btn {
@@ -314,67 +354,67 @@
             background: rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 60px 40px;
-            margin: 60px auto;
+            padding: 50px 30px;
+            margin: 50px auto;
             max-width: 1000px;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.1);
         }
         .about-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 25px;
+            font-size: 2rem;
+            margin-bottom: 20px;
             color: #e94560;
         }
         .about-section p {
-            font-size: 1.1rem;
-            line-height: 1.9;
+            font-size: 1rem;
+            line-height: 1.8;
             color: #b0b0b0;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         .about-section .creator {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #fff;
-            margin-top: 30px;
-            padding: 20px;
+            margin-top: 25px;
+            padding: 18px;
             background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(138, 43, 226, 0.2));
             border-radius: 15px;
         }
         .about-section .powered {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #ffd93d;
-            margin-top: 15px;
+            margin-top: 12px;
         }
         .contact-section {
             background: linear-gradient(135deg, rgba(233, 69, 96, 0.1), rgba(138, 43, 226, 0.1));
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 60px 40px;
-            margin: 60px auto;
+            padding: 50px 30px;
+            margin: 50px auto;
             max-width: 800px;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.1);
         }
         .contact-section h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
             color: #fff;
         }
         .contact-buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
         }
         .contact-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 15px 30px;
+            gap: 8px;
+            padding: 12px 25px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
@@ -397,52 +437,253 @@
         }
         footer {
             background: rgba(0,0,0,0.5);
-            padding: 40px 20px;
+            padding: 35px 20px;
             text-align: center;
-            margin-top: 60px;
+            margin-top: 50px;
         }
         footer p {
             color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
         }
         footer .brand {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #e94560;
             letter-spacing: 3px;
         }
         .loading {
             text-align: center;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
         .loading-spinner {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border: 4px solid rgba(233, 69, 96, 0.2);
             border-top-color: #e94560;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
         }
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
         .error {
             text-align: center;
-            padding: 50px;
+            padding: 40px;
             color: #ff6b6b;
             background: rgba(255, 107, 107, 0.1);
             border-radius: 20px;
             margin: 20px;
         }
+        /* ChatGPT Helper Button */
+        .chat-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #e94560;
+            cursor: pointer;
+            overflow: hidden;
+            animation: pulse 2s infinite, spinBorder 3s linear infinite;
+            box-shadow: 0 5px 25px rgba(233, 69, 96, 0.5);
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            padding: 3px;
+        }
+        .chat-btn img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes spinBorder {
+            0% { box-shadow: 0 0 0 3px #e94560, 0 0 20px #e94560; }
+            50% { box-shadow: 0 0 0 3px #ff6b6b, 0 0 30px #ff6b6b; }
+            100% { box-shadow: 0 0 0 3px #e94560, 0 0 20px #e94560; }
+        }
+        .chat-btn::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #ffd93d;
+            animation: rotateBorder 1.5s linear infinite;
+        }
+        @keyframes rotateBorder {
+            to { transform: rotate(360deg); }
+        }
+        .chat-label {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        /* Chat Modal */
+        .chat-modal {
+            display: none;
+            position: fixed;
+            bottom: 110px;
+            right: 25px;
+            width: 350px;
+            max-width: calc(100vw - 40px);
+            height: 500px;
+            max-height: calc(100vh - 150px);
+            background: rgba(15, 12, 41, 0.98);
+            border-radius: 20px;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            z-index: 1001;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px);
+        }
+        .chat-modal.active {
+            display: flex;
+        }
+        .chat-header {
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .chat-header img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+        .chat-header-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .chat-header-info p {
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+        .chat-close {
+            margin-left: auto;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .message {
+            max-width: 85%;
+            padding: 12px 15px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .message.bot {
+            background: rgba(233, 69, 96, 0.2);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        .message.user {
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        .chat-input-area {
+            padding: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            gap: 10px;
+        }
+        .chat-input-area input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .chat-input-area input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+        .chat-input-area button {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .typing-indicator {
+            display: flex;
+            gap: 5px;
+            padding: 12px 15px;
+            background: rgba(233, 69, 96, 0.2);
+            border-radius: 18px;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: #e94560;
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-8px); }
+        }
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2rem;
-                letter-spacing: 3px;
+                font-size: 1.8rem;
+                letter-spacing: 2px;
             }
             .hero-section h2 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
+            }
+            .hero-section {
+                padding: 35px 15px;
+            }
+            .profile-image {
+                width: 100px;
+                height: 100px;
             }
             .news-grid {
                 grid-template-columns: 1fr;
@@ -455,17 +696,55 @@
                 justify-content: center;
             }
             nav {
-                gap: 10px;
+                gap: 8px;
+                padding: 10px;
             }
             nav a {
-                padding: 8px 15px;
-                font-size: 0.9rem;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            .chat-btn {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .chat-label {
+                bottom: 85px;
+                right: 15px;
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+            .chat-modal {
+                right: 10px;
+                bottom: 95px;
+                width: calc(100vw - 20px);
+            }
+            .about-section, .contact-section {
+                padding: 35px 20px;
+            }
+            .about-section h2, .contact-section h2 {
+                font-size: 1.5rem;
+            }
+            .time-bar {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="animated-bg"></div>
+    
+    <div class="time-bar">
+        <div class="time-display">
+            <i class="fas fa-clock"></i>
+            <span id="phTime">Loading...</span>
+        </div>
+        <div class="profile-mini">
+            <span>Welcome to STARTCOPE NEWS</span>
+            <img src="https://i.ibb.co/Lhr56trN/profile.jpg" alt="Profile" onerror="this.src='https://via.placeholder.com/35?text=S'">
+        </div>
+    </div>
     
     <header>
         <h1><i class="fas fa-newspaper"></i> STARTCOPE NEWS</h1>
@@ -481,6 +760,7 @@
     
     <div class="container">
         <section id="home" class="hero-section">
+            <img src="https://i.ibb.co/Lhr56trN/profile.jpg" alt="STARTCOPE Profile" class="profile-image" onerror="this.src='https://via.placeholder.com/120?text=STARTCOPE'">
             <h2>Welcome to STARTCOPE NEWS</h2>
             <p>Stay updated with the latest news from Manila and around the Philippines. We bring you real-time news, trending stories, and breaking updates all in one place.</p>
             <a href="#news" class="btn-primary"><i class="fas fa-rocket"></i> GET STARTED</a>
@@ -514,7 +794,7 @@
         
         <section id="contact" class="contact-section">
             <h2><i class="fas fa-headset"></i> CONTACT DEVELOPER</h2>
-            <p style="color: #b0b0b0; margin-bottom: 30px;">Get in touch with us through the following channels:</p>
+            <p style="color: #b0b0b0; margin-bottom: 25px;">Get in touch with us through the following channels:</p>
             <div class="contact-buttons">
                 <a href="https://www.facebook.com/starcopebetacommenthightlight" target="_blank" class="contact-btn facebook-btn">
                     <i class="fab fa-facebook"></i> Facebook
@@ -532,7 +812,97 @@
         <p>Created by Manuelson Yasis</p>
     </footer>
     
+    <!-- ChatGPT Helper Button -->
+    <div class="chat-label"><i class="fas fa-robot"></i> CHATGPT HELPER</div>
+    <button class="chat-btn" onclick="toggleChat()">
+        <img src="https://i.ibb.co/Lhr56trN/profile.jpg" alt="AI Helper" onerror="this.innerHTML='<i class=\'fas fa-robot\' style=\'font-size:2rem;color:#fff;\'></i>'">
+    </button>
+    
+    <!-- Chat Modal -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-header">
+            <img src="https://i.ibb.co/Lhr56trN/profile.jpg" alt="AI" onerror="this.src='https://via.placeholder.com/45?text=AI'">
+            <div class="chat-header-info">
+                <h3>CHATGPT HELPER</h3>
+                <p>Powered by AI - Always Online</p>
+            </div>
+            <button class="chat-close" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                Hello! I'm CHATGPT HELPER, your AI assistant for STARTCOPE NEWS. How can I help you today? You can ask me anything about news, the Philippines, or anything else!
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="if(event.key==='Enter')sendMessage()">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    
     <script>
+        // Philippine Time
+        function updatePhilippineTime() {
+            const options = {
+                timeZone: 'Asia/Manila',
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
+            const phTime = new Date().toLocaleString('en-PH', options);
+            document.getElementById('phTime').textContent = phTime;
+        }
+        updatePhilippineTime();
+        setInterval(updatePhilippineTime, 1000);
+        
+        // Chat Functions
+        function toggleChat() {
+            const modal = document.getElementById('chatModal');
+            modal.classList.toggle('active');
+        }
+        
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            const messagesDiv = document.getElementById('chatMessages');
+            
+            // Add user message
+            messagesDiv.innerHTML += `<div class="message user">${message}</div>`;
+            input.value = '';
+            
+            // Add typing indicator
+            messagesDiv.innerHTML += `<div class="typing-indicator" id="typing"><span></span><span></span><span></span></div>`;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message })
+                });
+                
+                const data = await response.json();
+                
+                // Remove typing indicator
+                document.getElementById('typing')?.remove();
+                
+                // Add bot response
+                messagesDiv.innerHTML += `<div class="message bot">${data.reply || data.error || 'Sorry, I encountered an error.'}</div>`;
+            } catch (error) {
+                document.getElementById('typing')?.remove();
+                messagesDiv.innerHTML += `<div class="message bot">Sorry, I'm having trouble connecting. Please try again.</div>`;
+            }
+            
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        // News Functions
         let allNews = [];
         
         async function fetchNews(query = 'manila') {
@@ -578,7 +948,7 @@
                     day: 'numeric'
                 }) : '';
                 
-                const description = article.description ? article.description.substring(0, 150) + '...' : '';
+                const description = article.description ? article.description.substring(0, 120) + '...' : '';
                 
                 card.innerHTML = `
                     ${imageHtml}
@@ -591,7 +961,7 @@
                         <div class="news-meta">
                             <span class="news-date"><i class="far fa-calendar"></i> ${pubDate}</span>
                             <div class="news-actions">
-                                <button class="action-btn like-btn" onclick="toggleLike(this, ${index})">
+                                <button class="action-btn like-btn" onclick="toggleLike(this)">
                                     <i class="fas fa-heart"></i> <span>Like</span>
                                 </button>
                                 <button class="action-btn share-btn" onclick="shareNews('${article.link}', '${article.title.replace(/'/g, "\\'")}')">
@@ -605,42 +975,27 @@
             });
         }
         
-        function toggleLike(btn, index) {
+        function toggleLike(btn) {
             btn.classList.toggle('liked');
             const span = btn.querySelector('span');
-            if (btn.classList.contains('liked')) {
-                span.textContent = 'Liked';
-            } else {
-                span.textContent = 'Like';
-            }
+            span.textContent = btn.classList.contains('liked') ? 'Liked' : 'Like';
         }
         
         function shareNews(url, title) {
             if (navigator.share) {
-                navigator.share({
-                    title: title,
-                    url: url
-                });
+                navigator.share({ title, url });
             } else {
-                navigator.clipboard.writeText(url).then(() => {
-                    alert('Link copied to clipboard!');
-                });
+                navigator.clipboard.writeText(url).then(() => alert('Link copied to clipboard!'));
             }
         }
         
         function searchNews() {
             const query = document.getElementById('searchInput').value.trim();
-            if (query) {
-                fetchNews(query);
-            } else {
-                fetchNews('manila');
-            }
+            fetchNews(query || 'manila');
         }
         
         document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchNews();
-            }
+            if (e.key === 'Enter') searchNews();
         });
         
         fetchNews();
